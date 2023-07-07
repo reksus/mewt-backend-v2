@@ -1,2 +1,24 @@
 [GLOBAL]
 pants_version = "2.16.0"
+concurrent = true
+backend_packages.add = [
+  'pants.backend.python',
+  "pants.backend.python.mixed_interpreter_constraints",
+  "pants.backend.awslambda.python",
+  'pants.backend.python.lint.docformatter',
+  'pants.backend.python.lint.black',
+  'pants.backend.python.lint.flake8',
+  'pants.backend.python.lint.isort',
+  'pants.backend.python.lint.bandit',
+  'pants.backend.python.typecheck.mypy',
+]
+
+[anonymous-telemetry]
+enabled = false
+
+[source]
+root_patterns = ["/projects"]
+
+[python]
+interpreter_constraints = ["CPython>=3.10,<3.12"]
+enable_resolves = true

@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mewt-backend-v2"
+version = "0.1.0"
+description = "this project serves mewt's entire backend in a monorepo"
+authors = ["mewt.in"]
+readme = "README.md"
+packages = [{include = "mewt_backend_v2"}]
+
+[tool.poetry.dependencies]
+python = "^3.10 || ^3.11"
+fastapi = "^0.99.1"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
