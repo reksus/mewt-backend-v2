@@ -1,0 +1,18 @@
+1. download the script
+---
+curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh -o get-pants.sh
+
+
+2. add the /Users/<username>/bin to PATH 
+---
+current_user=$(whoami)
+new_path=/Users/$current_user/bin
+export PATH="$new_path:$PATH"
+
+3. run the pants script
+---
+./pants.sh
+
+4. check the pants version
+---
+pants -v
