@@ -1,7 +1,6 @@
-1. download the script
+1. download the script and 
 ---
-curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh -o get-pants.sh
-
+curl --proto '=https' --tlsv1.2 -fsSL https://static.pantsbuild.org/setup/get-pants.sh -o pants.sh && chmod +x ./pants.sh
 
 2. add the /Users/<username>/bin to PATH 
 ---
@@ -13,6 +12,6 @@ export PATH="$new_path:$PATH"
 ---
 ./pants.sh
 
-4. check the pants version
+4. check if pants installed correctly
 ---
 pants -v
