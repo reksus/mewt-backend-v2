@@ -32,6 +32,14 @@ def root():
     return {"data": "hello world!!!"}
 
 
+from mangum import Mangum
+def handler(event, context=None):
+    asgi_handler = Mangum(app=app)
+    response = asgi_handler(event, context)
+    return response
+
+
+
 if __name__ == '__main__':
     uvicorn.run("mewt_backend.app:app", port=1111, host='127.0.0.1')
 

@@ -21,22 +21,16 @@ pex_binary(
         '//:poetry#psycopg2',
         '//:poetry#asyncpg',
         '//:poetry#greenlet',
+        '//:poetry#mangum',
     ],
 )
 
-# pex_binary(
-#     name='alembic',
-#     entry_point='alembic.config:main',
-#     dependencies=[
-#         '//:poetry#alembic',
-#         '//:poetry#fastapi',
-#         '//:poetry#uvicorn',
-#         '//:poetry#psycopg2',
-#         '//:poetry#asyncpg',
-#         '//:poetry#greenlet',
-#     ],
-#     output_path='projects/mewt_backend'
-# )
-
-# sources=['alembic.ini'],
-#     sources=['migrations'],
+python_awslambda(
+    name="mewt-backend-lambda",
+    runtime="python3.10",
+    dependencies=[
+        "//:poetry#asyncpg",
+        "//:poetry#greenlet",
+    ],
+    handler="mewt_backend.app:handler",
+)
