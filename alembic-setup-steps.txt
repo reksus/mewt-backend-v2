@@ -1,0 +1,27 @@
+1. setup the alembic pex target in the projects/<proj>/BUILD
+pex_binary(
+    name="alembic",
+    script="alembic",
+    dependencies=[
+        "//:poetry#alembic",
+        '//:poetry#fastapi',
+        '//:poetry#uvicorn',
+        '//:poetry#psycopg2',
+        '//:poetry#asyncpg',
+        '//:poetry#greenlet',
+    ],
+)
+
+2. cd into the projects/<proj> dir and run the alembic command
+cd projects/<proj>
+pants run projects/<proj>:alembic -- init alembic
+
+3. update the alembic.ini to change the prepend_sys_path to projects by replacing . with ..
+- prepend_sys_path = .
++ prepend_sys_path = ..
+
+4. update the alembic/env.py as required to import the module
+
+5. run the alembic command like
+pants run projects/<proj>:alembic -- revision --autogenerate
+pants run projects/<proj>:alembic -- upgrade head
