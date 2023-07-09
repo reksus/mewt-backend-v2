@@ -3,7 +3,7 @@ python_sources()
 
 pex_binary(
     name="uvicorn",
-    entry_point="app.py",
+    entry_point="main.py",
     dependencies=[
         '//:poetry#asyncpg',
         '//:poetry#greenlet',
@@ -32,5 +32,5 @@ python_awslambda(
         "//:poetry#asyncpg",
         "//:poetry#greenlet",
     ],
-    handler="mewt_backend.app:handler",
+    handler="mewt_backend.lambda_handler:handler",
 )
