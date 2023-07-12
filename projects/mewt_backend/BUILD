@@ -5,6 +5,7 @@ pex_binary(
     name="uvicorn",
     entry_point="main.py",
     dependencies=[
+        '//:poetry#psycopg2',
         '//:poetry#asyncpg',
         '//:poetry#greenlet',
     ],
